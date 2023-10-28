@@ -1,0 +1,10 @@
+name: algo_trading
+dependencies:
+ - python
+ - numpy
+ - matplotlib
+ - pandas
+ - scikit-learn
+ - pip
+ - pip:
+    - binance-connector
