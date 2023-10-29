@@ -28,17 +28,14 @@ end_timestamp = time.mktime(end_datetime.timetuple())
 # end_timestamp = int(end_timestamp)
 end_timestamp = start_timestamp + interval_ms * 435
 
-print(start_timestamp)
-
-
 client = Spot(base_url=api_endpoint)
-print(start_timestamp)
-print(end_timestamp)
 
-# # Get last 10 klines of BNBUSDT at 1h interval
-k_line_data = client.klines(symbol, interval_code, startTime= start_timestamp, endTime=end_timestamp, limit=10)
+# Get last 10 klines of BNBUSDT at 1h interval
+k_line_data = client.klines(symbol, interval_code, startTime=start_timestamp, endTime=end_timestamp, limit=10)
 k_line_data = np.array(k_line_data)
-
-print(k_line_data.shape)
+print(k_line_data)
+k_line_data = client.klines(symbol, interval_code, startTime=start_timestamp, endTime=end_timestamp, limit=10)
+k_line_data = np.array(k_line_data)
+print(k_line_data)
 
 

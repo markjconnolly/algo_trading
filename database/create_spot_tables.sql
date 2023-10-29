@@ -1,7 +1,7 @@
 CREATE TABLE spot_entry (
-    spot_id int,
+    spot_id integer primary key autoincrement,
     symbol varchar(255),
-    ticker_time int,
+    ticker_time integer,
     open_price double,
     close_price double,
     min_price double,
