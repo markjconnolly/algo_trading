@@ -1,1 +1,1 @@
-# algo_trading
+# precision_crypto
