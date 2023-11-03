@@ -1,22 +1,28 @@
-const user = {
-  name: 'Hedy Lamarr',
-  imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
-  imageSize: 90,
-};
+import React from 'react' 
+import './App.css';
+import { useState } from 'react';
 
-export default function Profile() {
+export default function MyApp() {
+  const [count, setCount] = useState(0);
+  
+  function handleClick() {
+    setCount(count + 1)
+  }
+  
   return (
-    <>
-      <h1>{user.name}</h1>
-      <img
-        className="avatar"
-        src={user.imageUrl}
-        alt={'Photo of ' + user.name}
-        style={{
-          width: user.imageSize,
-          height: user.imageSize
-        }}
-      />
-    </>
+    <div>
+      <h1>Counter. ...</h1>
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
+    </div>
+
+  );
+}
+
+function MyButton({count, onClick}) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
   );
 }
