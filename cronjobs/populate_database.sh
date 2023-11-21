@@ -1,4 +1,3 @@
 #!/bin/zsh
-# conda init zsh
-conda activate algo_trading
+conda activate precision_crypto
 python /Users/mconn/precision_crypto/code/populate_database.py
