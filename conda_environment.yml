@@ -1,4 +1,4 @@
-name: algo_trading
+name: precision_crypto
 dependencies:
  - python
  - numpy
@@ -6,5 +6,5 @@ dependencies:
  - pandas
  - scikit-learn
  - pip
- - pip:
+ - pip: 
     - binance-connector
