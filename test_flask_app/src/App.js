@@ -5,42 +5,29 @@ import './App.css';
 function App() {
   // useState for setting JS object
   const [data, setdata] = useState({
-    signal: [],   
+    signal: [],
+    time: [],   
   });
-
-  // useEffect(() => {
-  //   fetch("/api/users/1")
-  //     .then( res => res.json()
-  //     .then( data => { 
-  //       setdata({
-  //         name: data.name,
-  //         age: data.Age,
-  //         date: data.Date,
-  //         programming: data.programming}
-  //       );
-  //     })
-  //   );
-  // }, []);
 
   useEffect(() => {
     fetch("/api/signal")
       .then( res => res.json()
       .then( data => { 
         setdata({
-          signal: data.signal
+          signal: data.signal,
+          time: data.time
         });
-        console.log(data.signal)
       })
     );
   }, []);
 
   const option = {
     xAxis: {
-      data: [3,4,5,4,2,1]
+      data: data.time
     },
     yAxis: {
-      
-    },
+      min: Math.min(data.signal),
+      },
     series: [
       {
         type: 'line',
@@ -48,7 +35,11 @@ function App() {
       }
     ]
   }; 
-  return <ReactEcharts option={option} />;
+  return (
+    <div>
+    <ReactEcharts option={option} />
+    </div>
+  ) 
   // return (
   //   <div className="App">
   //     <header className="App-header">
