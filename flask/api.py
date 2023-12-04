@@ -2,9 +2,9 @@ import sqlite3
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-# def connect_to_db():
-#     conn = sqlite3.connect('database.db')
-#     return conn
+def connect_to_db():
+    conn = sqlite3.connect('database.db')
+    return conn
 
 # def create_table():
 #     try:
@@ -52,7 +52,7 @@ def get_data():
     # except:
     #     users = []
     data = {}
-    data["signal"] = [1,2,3,4,5,6]
+    data["signal"] = [1,2,3,4,5,2]
     return data
 
 

@@ -34,16 +34,31 @@ function App() {
     );
   }, []);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>React and Flask</h1>
-        {/* Calling data */}
-        <p>{data.signal}</p>
+  const option = {
+    xAxis: {
+      data: [3,4,5,4,2,1]
+    },
+    yAxis: {
+      
+    },
+    series: [
+      {
+        type: 'line',
+        data: data.signal,
+      }
+    ]
+  }; 
+  return <ReactEcharts option={option} />;
+  // return (
+  //   <div className="App">
+  //     <header className="App-header">
+  //       <h1>React and Flask</h1>
+  //       {/* Calling data */}
+  //       <p>{data.signal}</p>
         
-      </header>
-    </div>
-  )
+  //     </header>
+  //   </div>
+  // )
 }
 
 export default App;
