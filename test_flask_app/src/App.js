@@ -23,10 +23,11 @@ function App() {
 
   const option = {
     xAxis: {
-      data: data.time
+      type: 'time',
     },
     yAxis: {
-      min: Math.min(data.signal),
+      type: 'value',
+      min: 'dataMin',
       },
     series: [
       {
@@ -35,21 +36,16 @@ function App() {
       }
     ]
   }; 
+
   return (
     <div>
-    <ReactEcharts option={option} />
+      <header className = 'header-light'> PRECISION CRYPTO </header>
+      <body className='background-dark'>
+        <ReactEcharts option={option} />
+      </body>
     </div>
-  ) 
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <h1>React and Flask</h1>
-  //       {/* Calling data */}
-  //       <p>{data.signal}</p>
-        
-  //     </header>
-  //   </div>
-  // )
+  ); 
+
 }
 
 export default App;

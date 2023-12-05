@@ -35,6 +35,7 @@ print(connect_to_db())
 def get_data():
     data = {}
     sql_max_time_spec = '''SELECT MAX(ticker_time) FROM spot_entry WHERE symbol = ?'''
+    # sql_data_spec = '''SELECT datetime(ticker_time)/1000, 'unixepoch'), open_price FROM spot_entry WHERE symbol = ? and ticker_time > ? AND ticker_time < ?'''
     sql_data_spec = '''SELECT ticker_time, open_price FROM spot_entry WHERE symbol = ? and ticker_time > ? AND ticker_time < ?'''
     symbol = 'BTCUSDT'
 
@@ -54,8 +55,9 @@ def get_data():
         cursor.execute(sql_data_spec, sql_data_val)
         ticker_data = np.array(cursor.fetchall())
         print(ticker_data[:,0])
-        data["time"] = ticker_data[:,0].tolist()
-        data["signal"] = ticker_data[:,1].tolist()
+
+        # data["time"] = ticker_data[:,0].tolist()
+        data["signal"] = ticker_data.tolist()
     except:
         data = {}
 
